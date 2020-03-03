@@ -7,9 +7,9 @@ public class ComboLockTester {
 		
 		testLock.reset();
 		
-		testLock.turnRight(30);
-		testLock.turnLeft(10);
-		testLock.turnRight(10);
+		testLock.turnRight();
+		testLock.turnLeft();
+		testLock.turnRight();
 		
 		testLock.open();
 		

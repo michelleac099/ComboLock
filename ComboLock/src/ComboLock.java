@@ -25,19 +25,29 @@ public class ComboLock {
 		notMoved = true;
 	}
 	
-	public void turnLeft(int ticks)
+	public void turnLeft()
 	{
+		int ticks = 0;
+		System.out.println("Enter a number of ticks 1-39 to move left. Enter -1 to cancel");
+		ticks = in.nextInt();
 		if (moved1) {
 			currentNumber = (currentNumber + ticks)%40;
 			moved2 = true;
 			if (currentNumber == secret2)
 				match2 = true;		
 		}
+		if(ticks<0) {
+			moved2 = false;
+			match2 = false;
+		}
 			
 	}
 	
-	public void turnRight(int ticks)
+	public void turnRight()
 	{
+		int ticks = 0;
+		System.out.println("Enter a number of ticks 1-39 to move right. Enter -1 to cancel");
+		ticks = in.nextInt();
 		if(notMoved) {
 			currentNumber = (40 - ticks);
 			moved1 = true;
@@ -52,6 +62,11 @@ public class ComboLock {
 			if (currentNumber == secret3)
 				match3 = true;
 		}
+		if(ticks<0 && moved1 == true)
+			moved1 = false;
+			notMoved = true;
+		if (ticks<0 && moved3 == true)
+			moved3 = false;
 	}
 	
 	public boolean open()
